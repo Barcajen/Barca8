@@ -1,1 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5th Monthsary 🤍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
+
+html { scroll-behavior:smooth; }
+
+body {
+ background:#160b13;
+ color:white;
+ font-family:'Poppins',sans-serif;
+ overflow-x:hidden;
+}
+
+:root {
+ --pink:#ff85ad;
+ --light:#ffd3e1;
+ --rose:#e64e83;
+}
+
+#stars {
+ position:fixed;
+ inset:0;
+ z-index:-2;
+ background:
+ radial-gradient(circle at 20% 20%,#663047,transparent 35%),
+ radial-gradient(circle at 80% 70%,#50213c,transparent 40%),
+ #160b13;
+}
+
+#stars:after {
+ content:"";
+ position:absolute;
+ inset:0;
+ background-image:radial-gradient(white 1px,transparent 1px);
+ background-size:75px 75px;
+ opacity:.15;
+}
+
+#intro {
+ position:fixed;
+ inset:0;
+ z-index:20;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ flex-direction:column;
+ text-align:center;
+ padding:25px;
+ background:radial-gradient(circle,#77334f,#160b13 75%);
+ transition:1s;
+}
+
+#intro.hide {
+ opacity:0;
+ visibility:hidden;
+}
+
+.envelope {
+ font-size:90px;
+ cursor:pointer;
+ animation:float 2s infinite;
+ filter:drop-shadow(0 0 25px #ff83ad);
+}
+
+@keyframes float {
+ 50% { transform:translateY(-15px); }
+}
+
+.script {
+ font-family:'Great Vibes',cursive;
+ color:var(--light);
+ font-size:53px;
+}
+
+.intro-text {
+ font-size:13px;
+ color:#f2c6d7;
+ margin:15px;
+}
+
+button {
+ border:none;
+ cursor:pointer;
+ border-radius:40px;
+ padding:14px 25px;
+ font-size:13px;
+ font-weight:600;
+ background:linear-gradient(120deg,#ffb4cd,#e94c83);
+ color:#411327;
+ box-shadow:0 0 25px #ff85ad55;
+ transition:.3s;
+ margin:8px 4px;
+}
+
+button:hover {
+ transform:scale(1.05);
+}
+
+.main { display:none; }
+.main.show { display:block; }
+
+section {
+ max-width:850px;
+ padding:85px 20px;
+ margin:auto;
+ text-align:center;
+}
+
+.hero {
+ min-height:100vh;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ flex-direction:column;
+}
+
+.hero-heart {
+ font-size:90px;
+ animation:beat 1.3s infinite;
+ filter:drop-shadow(0 0 25px #ff5594);
+}
+
+@keyframes beat {
+ 50% { transform:scale(1.18); }
+}
+
+h1 {
+ font-size:clamp(32px,8vw,55px);
+ margin:15px 0;
+}
+
+h2 {
+ color:var(--light);
+ margin-bottom:15px;
+}
+
+p {
+ color:#edcfdb;
+ line-height:1.9;
+}
+
+.small {
+ letter-spacing:3px;
+ font-size:10px;
+ color:#ffabc7;
+}
+
+.divider {
+ width:65px;
+ height:3px;
+ border-radius:5px;
+ background:var(--pink);
+ margin:20px auto;
+}
+
+.glass {
+ padding:28px 22px;
+ border:1px solid #ffabc744;
+ border-radius:25px;
+ background:linear-gradient(135deg,#ffffff12,#ffffff05);
+ backdrop-filter:blur(12px);
+ box-shadow:0 15px 45px #0004;
+}
+
+.counter {
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:9px;
+ margin-top:25px;
+}
+
+.time {
+ padding:17px 3px;
+ background:#ffffff10;
+ border:1px solid #ffabc733;
+ border-radius:15px;
+}
+
+.time strong {
+ display:block;
+ font-size:26px;
+ color:var(--pink);
+}
+
+.time span {
+ font-size:9px;
+ color:#e8bdce;
+}
+
+.letter {
+ white-space:pre-line;
+ text-align:left;
+ font-size:13px;
+ line-height:2;
+ color:#f5dce7;
+}
+
+.timeline {
+ text-align:left;
+ border-left:2px solid var(--pink);
+ margin:25px 10px;
+ padding-left:25px;
+}
+
+.event {
+ margin:25px 0;
+ position:relative;
+}
+
+.event:before {
+ content:"♥";
+ position:absolute;
+ left:-36px;
+ color:var(--pink);
+ background:#160b13;
+ padding:3px;
+}
+
+.event h3 {color:var(--pink);
+ font-size:15px;
+}
+
+audio {
+ width:100%;
+ margin-top:15px;
+}
+
+input[type=file] {
+ max-width:100%;
+ font-size:11px;
+ color:#f6dce7;
+ margin:15px 0;
+}
+
+.surprise {
+ display:none;
+ margin-top:20px;
+ animation:appear 1s ease;
+}
+
+@keyframes appear {
+ from { opacity:0;transform:translateY(20px); }
+ to { opacity:1;transform:translateY(0); }
+}
+
+#hugEmoji {
+ font-size:75px;
+ margin:25px;
+ animation:float 2s infinite;
+}
+
+footer {
+ padding:35px 15px;
+ text-align:center;
+ font-size:12px;
+ color:#e8a9c0;
+}
+
+.fall {
+ position:fixed;
+ top:-30px;
+ z-index:5;
+ pointer-events:none;
+ animation:fall linear forwards;
+}
+
+@keyframes fall {
+ to {
+  transform:translateY(110vh) rotate(360deg);
+  opacity:0;
+ }
+}
+
+@media(max-width:450px) {
+ section { padding:70px 17px; }
+ .script { font-size:45px; }
+ .counter { gap:5px; }
+ .time strong { font-size:21px; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+
+<div id="intro">
+ <div class="envelope" onclick="start()">💌</div>
+
+ <div class="script">For My Love, Rose</div>
+
+ <p class="intro-text">
+  Someone made something special just for you.
+  <br>Open this little surprise, my lovey. 🤍
+ </p>
+
+ <button onclick="start()">OPEN YOUR LETTER 🤍</button>
+
+ <p style="font-size:10px">
+  MADE WITH LOVE BY JENIELLE
+ </p>
+</div>
+
+<div class="main" id="main">
+
+<section class="hero">
+
+ <div class="hero-heart">🤍</div>
+
+ <p class="small">A SPECIAL DAY FOR US</p>
+
+ <h1>Happy 5th Monthsary</h1>
+
+ <div class="script">My Dearest Rose</div>
+
+ <div class="divider"></div>
+
+ <p>
+  Five months of love, memories,
+  and endless reasons to keep choosing each other.
+ </p>
+
+ <button onclick="go('letter')">
+  READ MY LOVE LETTER 💌
+ </button>
+
+ <p style="font-size:10px;margin-top:30px">
+  SCROLL DOWN FOR MORE SURPRISES ↓
+ </p>
+
+</section>
+
+<section>
+
+ <div class="glass">
+
+  <div class="script">Our Love Journey</div>
+
+  <div class="divider"></div>
+
+  <p>
+   Every moment with you is worth remembering. 🤍
+  </p>
+
+  <div class="counter">
+
+   <div class="time">
+    <strong id="days">0</strong>
+    <span>DAYS</span>
+   </div>
+
+   <div class="time">
+    <strong id="hours">0</strong>
+    <span>HOURS</span>
+   </div>
+
+   <div class="time">
+    <strong id="minutes">0</strong>
+    <span>MINUTES</span>
+   </div>
+
+   <div class="time">
+    <strong id="seconds">0</strong>
+    <span>SECONDS</span>
+   </div>
+
+  </div>
+
+  <p id="counterNote" style="font-size:11px;margin-top:15px">
+   Our journey begins soon. 🤍
+  </p>
+
+ </div>
+
+</section>
+
+<section id="letter">
+
+ <div class="script">A Letter For You</div>
+
+ <div class="divider"></div>
+
+ <div class="glass">
+
+  <h2>Dear my lovey Rose🤍 </h2>
+
+  <div class="letter" id="typed"></div>
+
+  <button onclick="showLetter()">
+   READ AGAIN 💌
+  </button>
+
+ </div>
+
+</section>
+
+<section>
+
+ <div class="glass">
+
+  <div class="script">Our Little LDR World</div>
+
+  <div style="font-size:75px;margin:25px">
+   🌙🤍🌙
+  </div>
+
+  <div class="divider"></div>
+
+  <h2>Different Places, Same Moon</h2>
+
+  <p>
+   We may be miles apart, lovey,
+   but every night we look at the same moon
+   and share the same beautiful sky.
+  </p>
+
+  <div style="font-size:55px;margin:25px">
+   💌 🥺 🤍
+  </div>
+
+  <h2>Our Love Doesn't Need Pictures</h2>
+
+  <p>
+   Because the most beautiful memories
+   are not always captured by a camera.
+   Some are kept forever in our hearts.
+  </p>
+
+  <div class="divider"></div>
+
+  <div class="script">
+   Forever you lovey
+  </div>
+
+ </div>
+
+</section>
+
+<section id="virtual">
+
+ <div class="glass">
+
+  <div class="script">If I Were Beside You...</div>
+
+  <div class="divider"></div>
+
+  <p>
+   Lovey, if I were beside you right now,
+   I would give you the biggest hug
+   and never let distance stop me
+   from making you feel loved. ❤️
+  </p>
+
+  <div id="hugEmoji">🥺🤍</div>
+
+  <h2 id="hugMessage">
+   Choose your surprise, my lovey.
+  </h2>
+
+  <button onclick="virtualHug()">
+   SEND A BIG HUG 🤗
+  </button>
+
+  <button onclick="virtualKiss()">
+   SEND A KISS 😘
+  </button>
+
+  <button onclick="virtualLove()">
+   SEND MY LOVE 🤍
+  </button>
+
+  <div class="divider"></div>
+
+  <p style="font-size:13px">
+   Even if I can't touch your hand,
+   I hope you can feel my love
+   through this little surprise.
+  </p>
+
+ </div>
+
+</section>
+
+<section>
+
+ <div class="script">Five Months of Us</div>
+
+ <div class="divider"></div>
+
+ <div class="glass timeline">
+
+  <div class="event">
+   <h3>Month 1 — The Beginning 🤍</h3>
+   <p>The start of our beautiful story.</p>
+  </div>
+
+  <div class="event">
+   <h3>Month 2 — Getting Closer 🌷</h3>
+   <p>More conversations and little memories.</p>
+  </div>
+
+  <div class="event">
+   <h3>Month 3 — Understanding Each Other 🥺</h3>
+   <p>Learning to understand and appreciate each other.</p>
+  </div>
+
+  <div class="event">
+   <h3>Month 4 — Still Choosing You 🤍</h3>
+   <p>Through every distance and misunderstanding.</p>
+  </div>
+
+  <div class="event">
+   <h3>Month 5 — Our Special Day 💍</h3>
+   <p>Five months, and many more memories to make.</p>
+  </div>
+
+ </div>
+
+</section>
+
+
+<section>
+
+ <div class="glass">
+
+  <div class="script">Our Special Song 🎵</div>
+
+  <div class="divider"></div>
+
+  <p>
+   A little song for my favorite person.
+  </p>
+
+  <audio id="player" src="song.mp3" autoplay loop controls></audio>
+
+ </div>
+
+</section>
+
+
+<section>
+
+ <div class="hero-heart">🤍</div>
+
+ <div class="script">One Last Surprise</div>
+
+ <p>Lovey,there's one more thing I want you to know...
+ </>
+
+ <button onclick="openSurprise()">
+  OPEN MY SURPRISE ✨
+ </button>
+
+ <div class="glass surprise" id="surprise">
+
+  <div class="script">My Promise To You</div>
+
+  <div class="divider"></div>
+
+  <p>
+   I cannot promise that every day will be perfect.
+   But I hope we continue to choose each other,
+   communicate, and grow together.
+  </p>
+
+  <br>
+
+  <h2>
+   Distance means so little when someone means so much. 🤍
+  </h2>
+
+  <div class="script">
+   I Love You so much lovey🤍
+  </div>
+
+  <p>
+   Forever yours, Jenielle🤍
+  </p>
+
+ </div>
+
+</section>
+
+<footer>
+
+ Made with love, from my heart to yours🤍
+
+ <p>Happy 5th Monthsary, my lovey!</p>
+
+</footer>
+
+</div>
+
+<script>
+
+
+const YOUR_NAME = "Jenielle";
+const PARTNER_NAME = "Rose";
+const START_DATE = "2026-11-17";
+
+
+const loveLetter =
+`Happy 5th Monthsary, my lovey🤍
+
+My dearest Rose,
+
+I just want you to know how grateful I am to have you in my life.
+
+Five months may sound short to some people, but every moment with you means so much to me.
+
+I know being in a long-distance relationship is not easy. There are times when I wish I could be there to hug you, hold your hand, and make you smile in person.
+
+Sometimes we misunderstand each other, sometimes we have difficult days, but I hope we never forget how special our love is.
+
+Thank you for your patience, your love, your time, and every little thing you do.
+
+I may not be beside you physically, but please remember that you always have someone who cares about you.
+
+I hope we get to celebrate many more months together. I hope one day distance will no longer be a problem and I can finally hug you without saying goodbye through a screen.
+
+I am not perfect, but I will always try to love you better.
+
+Happy 5th Monthsary,Lovey.
+
+I LOVE YOU SO MUCH!🤍
+
+Forever yours,
+${YOUR_NAME} 🤍`;
+
+
+
+function start() {
+  document.getElementById("intro").classList.add("hide");
+  document.getElementById("main").classList.add("show");
+  showLetter();
+  document.getElementById("player").play();
+}
+
+
+
+function go(id) {
+ document.getElementById(id).scrollIntoView({
+  behavior:"smooth"
+ });  
+}
+
+
+// LETTER ANIMATION
+let typing;
+
+function showLetter() {
+
+ clearInterval(typing);
+
+ const el = document.getElementById("typed");
+
+ el.textContent = "";
+
+ let i = 0;
+
+ typing = setInterval(() => {
+
+  el.textContent += loveLetter.charAt(i);
+
+  i++;
+
+  if(i >= loveLetter.length) {
+   clearInterval(typing);
+  }
+
+ },35);
+
+}
+
+
+// VIRTUAL HUG
+function virtualHug() {
+
+ document.getElementById("hugEmoji").innerHTML = "🤗🤍";
+
+ document.getElementById("hugMessage").innerHTML =
+ "A tight virtual hug for you, Lovey! I wish I could hold you right now. 🤍";
+
+}
+
+
+// VIRTUAL KISS
+function virtualKiss() {
+
+ document.getElementById("hugEmoji").innerHTML = "😘💋";
+
+ document.getElementById("hugMessage").innerHTML =
+ "Mwaaa! Sending you unlimited kisses, my lovey! 🤍";
+
+}
+
+
+// LOVE BUTTON
+function virtualLove() {
+
+ document.getElementById("hugEmoji").innerHTML = "🤍🤍🤍";
+
+ document.getElementById("hugMessage").innerHTML =
+ "No distance can stop me from loving you. I LOVE YOU so much lovey 🤍";
+
+}
+
+
+// MUSIC
+function addMusic(e) {
+
+ const file = e.target.files[0];
+
+ if(file) {
+
+  const player = document.getElementById("player");
+
+  player.src = URL.createObjectURL(file);
+
+  player.play();
+
+ }
+
+}
+
+function openSurprise() {
+
+ const box = document.getElementById("surprise");
+
+ box.style.display = "block";
+
+ box.scrollIntoView({
+  behavior:"smooth",
+  block:"center"
+ });
+
+}
+
+function updateCounter() {
+
+ const start = new Date(START_DATE + "T00:00:00");
+
+ const now = new Date();
+
+ const note = document.getElementById("counterNote");
+
+ if(now < start) {
+
+  document.getElementById("days").textContent = "0";
+  document.getElementById("hours").textContent = "0";
+  document.getElementById("minutes").textContent = "0";
+  document.getElementById("seconds").textContent = "0";
+
+  note.textContent =
+  "Our special date is November 17, 2026. 🤍";
+
+  return;
+
+ }
+
+ const diff = now - start;
+
+ document.getElementById("days").textContent =
+ Math.floor(diff / 86400000);
+
+ document.getElementById("hours").textContent =
+ Math.floor(diff / 3600000) % 24;
+
+ document.getElementById("minutes").textContent =
+ Math.floor(diff / 60000) % 60;
+
+ document.getElementById("seconds").textContent =
+ Math.floor(diff / 1000) % 60;
+
+ note.textContent =
+ "Every second is a memory with you. 🤍";
+
+}
+
+setInterval(updateCounter,1000);
+
+updateCounter();
+
+
+// FLOATING HEARTS
+setInterval(() => {
+
+ const heart = document.createElement("div");
+
+ heart.className = "fall";
+
+ heart.textContent = [
+  "🩵","💕","🤍","🌸","✨"
+ ][Math.floor(Math.random()*5)];
+
+ heart.style.left = Math.random()*100 + "vw";
+
+ heart.style.fontSize =
+ (15 + Math.random()*18) + "px";
+
+ heart.style.animationDuration =
+ (5 + Math.random()*5) + "s";
+
+ document.body.appendChild(heart);
+
+ setTimeout(() => {
+  heart.remove();
+ },10000);
+
+},650);
+
+</script>
+
+</body>
+</html>
 
